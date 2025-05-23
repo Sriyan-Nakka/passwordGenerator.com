@@ -10,6 +10,9 @@
     />
     <title>Password Generator</title>
     <style>
+      * {
+        box-sizing: border-box;
+      }
       .icon {
         width: 40px;
         margin: 0.5rem;
@@ -50,6 +53,34 @@
       /* #fullContainer {
         background-color: gray;
       } */
+      legend {
+        border: 2px solid white;
+        padding: 0.3rem;
+      }
+      fieldset {
+        display: inline-block;
+        border-radius: 10px;
+      }
+      #generateBtnDiv {
+        margin-top: 1rem;
+      }
+      input {
+        font-size: 1.2rem;
+        cursor: pointer;
+        transition: all 0.1s ease-in-out;
+      }
+      .checkbox {
+        transform: scale(2);
+        margin-right: 0.7rem;
+      }
+      button {
+        cursor: pointer;
+        font-size: 1.1rem;
+        transition: all 0.2s ease-in-out;
+      }
+      button:hover {
+        transform: scale(1.1);
+      }
     </style>
   </head>
   <body>
@@ -61,8 +92,32 @@
       </header>
       <hr />
       <main>
-        <p>Fill out the values to get your randomly generated password!</p>
-        <form></form>
+        <fieldset>
+          <legend>Fill the form below to generate your password.</legend>
+          <form onsubmit="generatePassword(event)">
+            No. of total characters:
+            <input type="number" id="characterNum" min="4" max="50" required />
+            <br />
+            <input
+              type="checkbox"
+              id="includeUppercase"
+              class="checkbox"
+            />Include uppercase characters.<br />
+            <input type="checkbox" id="numbers" class="checkbox" />Include
+            numbers.
+            <br />
+            <input type="checkbox" id="specialChars" class="checkbox" />Include
+            special characters ($, #, @, *, !).
+            <div id="generateBtnDiv">
+              <button id="generateButton" type="submit">
+                Generate Password
+              </button>
+            </div>
+          </form>
+        </fieldset>
+        <div id="passwordDiv">
+          <span id="passwordSpan">Your password is...</span>
+        </div>
       </main>
       <hr id="footerHr" />
       <footer>
@@ -91,7 +146,7 @@
           ></a>
           <br />
           &copy;Copyright, Sai Sriyan Nakka 2025, All Rights Reserved.
-          <br />Version 0.1 <br />
+          <br />Version 0.2 <br />
         </center>
       </footer>
     </div>
