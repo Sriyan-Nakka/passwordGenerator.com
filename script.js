@@ -47,9 +47,12 @@ function generatePassword(e) {
     else if (numbers && specialChars) {
     }
     // Combo 5
+    else if (uppercase) {
+    }
+    // combo 6
     else if (numbers) {
     }
-    // Combo 6
+    // Combo 7
     else if (specialChars) {
     }
   }
@@ -75,6 +78,9 @@ function charInclude(charType, combo) {
         break;
       //numbers
       case 3:
+        let number = Math.floor(Math.random() * 10);
+        console.log("number", number);
+        password += number;
         break;
       //special characters
       case 4:
@@ -90,6 +96,8 @@ function charInclude(charType, combo) {
     //combo 5 code
   } else if (combo === 6) {
     //combo 6 code
+  } else if (combo === 7) {
+    //combo 7 code
   }
 }
 
