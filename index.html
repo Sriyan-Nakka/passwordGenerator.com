@@ -11,7 +11,13 @@
     <title>Password Generator</title>
     <style>
       * {
-        box-sizing: border-box;
+        --main-bg: hsl(0, 0%, 7%);
+        --main-text-color: hsl(0, 0%, 88%);
+        --secondary-text-color: hsl(0, 0%, 62%);
+        --accent-color: hsl(208, 79%, 50%);
+        --accent-hover: hsl(212, 80%, 35%);
+        --border-color: hsl(0, 0%, 30%);
+        --form-bg: hsl(0, 0%, 10%);
       }
       .icon {
         width: 40px;
@@ -20,18 +26,19 @@
       }
       .icon:hover {
         cursor: pointer;
-        transform: scale(1.25);
+        transform: scale(1.3);
       }
       body {
         font-size: 62.5%;
-        background-color: black;
-        color: white;
+        background-color: var(--main-bg);
+        color: var(--main-text-color);
         font-size: 1.6rem;
         text-align: center;
       }
       footer {
         font-size: 1.25rem;
         padding: 0.5rem;
+        color: var(--secondary-text-color);
       }
       a {
         cursor: pointer;
@@ -39,7 +46,7 @@
       hr {
         height: 3px;
         border: none;
-        background-color: white;
+        background-color: var(--border-color);
       }
       #footerHr {
         margin-bottom: 5px;
@@ -49,12 +56,10 @@
         text-decoration: underline;
         margin-top: 15px;
         margin-bottom: 10px;
+        color: var(--accent-color);
       }
-      /* #fullContainer {
-        background-color: gray;
-      } */
       legend {
-        border: 2px solid white;
+        border: 2px solid var(--border-color);
         padding: 0.3rem;
       }
       fieldset {
@@ -68,87 +73,121 @@
         font-size: 1.2rem;
         cursor: pointer;
         transition: all 0.1s ease-in-out;
+        border-radius: 5px;
+        border: none;
       }
       .checkbox {
-        transform: scale(2);
-        margin-right: 0.7rem;
+        transform: scale(1.7);
+        margin-right: 0.6rem;
       }
       button {
         cursor: pointer;
-        font-size: 1.1rem;
+        font-size: 1.15rem;
         transition: all 0.2s ease-in-out;
+        border-radius: 5px;
       }
       button:hover {
         transform: scale(1.1);
+      }
+      fieldset{
+        border: 3px solid var(--border-color);
+        background-color: var(--form-bg);
+      }
+      code{
+        background-color: hsl(0, 0%, 12%);
+        border-radius: 5px;
+        padding: 3px;
+        font-size: 1.7rem;
+      }
+      #desc{
+        color: var(--secondary-text-color)
+      }
+      #generateButton{
+        background-color: var(--accent-color);
+        border: none;
+      }
+      #generateButton:hover{
+        background-color: var(--accent-hover);
+        font-weight: bold;
+        color: white;
+        transform: scale(1.2);
+      }
+      #passwordDiv{
+        margin-top: 15px;
+        margin-bottom: 15px;
+        display: none;
       }
     </style>
   </head>
   <body>
     <script src="script.js" defer></script>
-    <div id="fullContainer">
-      <header>
-        <h1>Password Generator</h1>
-        Generate strong passwords to secure your accounts just the way you like!
-      </header>
-      <hr />
-      <main>
-        <fieldset>
-          <legend>Fill the form below to generate your password.</legend>
-          <form onsubmit="generatePassword(event)">
-            No. of total characters:
-            <input type="number" id="characterNum" min="4" max="50" required />
-            <br />
-            <input
-              type="checkbox"
-              id="includeUppercase"
-              class="checkbox"
-            />Include uppercase characters.<br />
-            <input type="checkbox" id="numbers" class="checkbox" />Include
-            numbers.
-            <br />
-            <input type="checkbox" id="specialChars" class="checkbox" />Include
-            special characters ($, #, @, *, !).
-            <div id="generateBtnDiv">
-              <button id="generateButton" type="submit">
-                Generate Password
-              </button>
-            </div>
-          </form>
-        </fieldset>
-        <div id="passwordDiv">
-          <span id="passwordSpan">Your password is...</span>
-        </div>
-      </main>
-      <hr id="footerHr" />
-      <footer>
-        <center>
-          <a href="https://github.com/Sriyan-Nakka" target="_blank"
-            ><svg
-              class="icon github"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-            >
-              <path
-                fill="white"
-                d="M12 1A10.89 10.89 0 0 0 1 11.77A10.79 10.79 0 0 0 8.52 22c.55.1.75-.23.75-.52v-1.83c-3.06.65-3.71-1.44-3.71-1.44a2.86 2.86 0 0 0-1.22-1.58c-1-.66.08-.65.08-.65a2.31 2.31 0 0 1 1.68 1.11a2.37 2.37 0 0 0 3.2.89a2.33 2.33 0 0 1 .7-1.44c-2.44-.27-5-1.19-5-5.32a4.15 4.15 0 0 1 1.11-2.91a3.78 3.78 0 0 1 .11-2.84s.93-.29 3 1.1a10.7 10.7 0 0 1 5.5 0c2.1-1.39 3-1.1 3-1.1a3.78 3.78 0 0 1 .11 2.84A4.15 4.15 0 0 1 19 11.2c0 4.14-2.58 5.05-5 5.32a2.5 2.5 0 0 1 .75 2v2.95c0 .35.2.63.75.52A10.8 10.8 0 0 0 23 11.77A10.89 10.89 0 0 0 12 1"
-              /></svg
-          ></a>
-          <a href="https://sriyan-blogs.blogspot.com/"
-            ><svg
-              class="icon blogger"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 32 32"
-            >
-              <path
-                fill="white"
-                d="M13 7a6 6 0 0 0-6 6v7a6 6 0 0 0 6 6h7a6 6 0 0 0 6-6v-5a1 1 0 0 0-1-1h-1a1 1 0 0 1-1-1a6 6 0 0 0-6-6zm0 5h4c.55 0 1 .45 1 1s-.45 1-1 1h-4c-.55 0-1-.45-1-1s.45-1 1-1m0 7h7c.55 0 1 .45 1 1s-.45 1-1 1h-7c-.55 0-1-.45-1-1s.45-1 1-1"
-              /></svg
-          ></a>
+    <header>
+      <h1>Password Generator</h1>
+      <span id="desc">
+      Generate strong passwords to secure your accounts just the way you like!
+      </span>
+    </header>
+    <hr />
+      <fieldset>
+        <legend>Select password length and character inclusions:</legend>
+        <form onsubmit="generatePassword(event)">
+          No. of total characters:
+          <input type="number" id="characterNum" min="4" max="50" required />
           <br />
-          &copy;Copyright, Sai Sriyan Nakka 2025, All Rights Reserved.
-          <br />Version 0.2 <br />
-        </center>
-      </footer>
+          <input
+            type="checkbox"
+            id="includeUppercase"
+            class="checkbox"
+          />Include uppercase characters.<br />
+          <input type="checkbox" id="includeNumbers" class="checkbox" />Include
+          numbers.
+          <br />
+          <input type="checkbox" id="specialChars" class="checkbox" />Include
+          special characters ($, #, @, *, !).
+          <div id="generateBtnDiv">
+            <button id="generateButton" type="submit">Generate Password</button>
+          </div>
+        </form>
+      </fieldset>
+      <div id="passwordDiv">
+      <p>
+        Your password is...
+        <p style="margin-top: 15px; margin-bottom: 15px;">
+          <code id="passwordDisplay"></code>
+        </p>
+        Click 'Generate Password' to generate a new password.
+    </p>
     </div>
+    </main>
+    <hr id="footerHr" />
+    <footer>
+      <center>
+        <a href="https://github.com/Sriyan-Nakka" target="_blank"
+          ><svg
+            class="icon github"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+          >
+            <path
+              fill="white"
+              d="M12 1A10.89 10.89 0 0 0 1 11.77A10.79 10.79 0 0 0 8.52 22c.55.1.75-.23.75-.52v-1.83c-3.06.65-3.71-1.44-3.71-1.44a2.86 2.86 0 0 0-1.22-1.58c-1-.66.08-.65.08-.65a2.31 2.31 0 0 1 1.68 1.11a2.37 2.37 0 0 0 3.2.89a2.33 2.33 0 0 1 .7-1.44c-2.44-.27-5-1.19-5-5.32a4.15 4.15 0 0 1 1.11-2.91a3.78 3.78 0 0 1 .11-2.84s.93-.29 3 1.1a10.7 10.7 0 0 1 5.5 0c2.1-1.39 3-1.1 3-1.1a3.78 3.78 0 0 1 .11 2.84A4.15 4.15 0 0 1 19 11.2c0 4.14-2.58 5.05-5 5.32a2.5 2.5 0 0 1 .75 2v2.95c0 .35.2.63.75.52A10.8 10.8 0 0 0 23 11.77A10.89 10.89 0 0 0 12 1"
+            /></svg
+        ></a>
+        <a href="https://sriyan-blogs.blogspot.com/"
+          ><svg
+            class="icon blogger"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 32 32"
+          >
+            <path
+              fill="white"
+              d="M13 7a6 6 0 0 0-6 6v7a6 6 0 0 0 6 6h7a6 6 0 0 0 6-6v-5a1 1 0 0 0-1-1h-1a1 1 0 0 1-1-1a6 6 0 0 0-6-6zm0 5h4c.55 0 1 .45 1 1s-.45 1-1 1h-4c-.55 0-1-.45-1-1s.45-1 1-1m0 7h7c.55 0 1 .45 1 1s-.45 1-1 1h-7c-.55 0-1-.45-1-1s.45-1 1-1"
+            /></svg
+        ></a>
+        <br />
+        &copy;Copyright, Sai Sriyan Nakka 2025, All Rights Reserved.
+        <br />Version 0.3 <br />
+      </center>
+    </footer>
   </body>
 </html>
