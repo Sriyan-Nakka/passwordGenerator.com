@@ -10,6 +10,17 @@
     />
     <title>Password Generator</title>
     <style>
+      @font-face {
+        font-family: 'headFont';
+        src: url('fonts/WDXLLubrifontTC-Regular.woff2') format('woff2'),
+             url('fonts/WDXLLubrifontTC-Regular.woff') format('woff');
+      }
+      @font-face {
+        font-family: 'bodyFont';
+        src: url('fonts/ShareTech-Regular.woff2') format('woff2'),
+             url('fonts/ShareTech-Regular.woff') format('woff');
+      }
+
       * {
         --main-bg: hsl(0, 0%, 7%);
         --main-text-color: hsl(0, 0%, 88%);
@@ -34,11 +45,13 @@
         color: var(--main-text-color);
         font-size: 1.6rem;
         text-align: center;
+        font-family: bodyFont, sans-serif;
       }
       footer {
-        font-size: 1.25rem;
+        font-size: 1.5rem;
         padding: 0.5rem;
         color: var(--secondary-text-color);
+        font-weight: bold;
       }
       a {
         cursor: pointer;
@@ -57,10 +70,12 @@
         margin-top: 15px;
         margin-bottom: 10px;
         color: var(--accent-color);
+        font-family: headFont, sans-serif;
       }
       legend {
         border: 2px solid var(--border-color);
         padding: 0.3rem;
+        font-weight: bold;
       }
       fieldset {
         display: inline-block;
@@ -74,7 +89,10 @@
         cursor: pointer;
         transition: all 0.1s ease-in-out;
         border-radius: 5px;
-        border: none;
+        border: 3px solid var(--border-color);
+      }
+      input:hover {
+        border: 3px solid black;
       }
       .checkbox {
         transform: scale(1.7);
@@ -82,9 +100,10 @@
       }
       button {
         cursor: pointer;
-        font-size: 1.15rem;
+        font-size: 1.4rem;
         transition: all 0.2s ease-in-out;
         border-radius: 5px;
+        font-family: headFont, sans-serif;
       }
       button:hover {
         transform: scale(1.1);
@@ -109,7 +128,6 @@
       #generateButton:hover{
         background-color: var(--accent-hover);
         font-weight: bold;
-        color: white;
         transform: scale(1.2);
       }
       #passwordDiv{
@@ -151,11 +169,11 @@
       </fieldset>
       <div id="passwordDiv">
       <p style="margin-bottom: 12px;">
-        Your password is...
+        Your generated password is...
         <p style="margin-top: 10px; margin-bottom: 10px;">
           <code id="passwordDisplay"></code>
         </p>
-        Click 'Generate Password' to generate a new password.
+        Copy the password to your clipboard. Click 'Generate Password' to generate a new password.
     </p>
     </div>
     </main>
@@ -186,7 +204,7 @@
         ></a>
         <br />
         &copy;Copyright, Sai Sriyan Nakka 2025, All Rights Reserved.
-        <br />Version 0.51 <br />
+        <br />Version 0.9 <br />
       </center>
     </footer>
   </body>
