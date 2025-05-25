@@ -29,37 +29,139 @@ function generatePassword(e) {
     // Combo 1
     if (uppercase && numbers && specialChars) {
       let charType = Math.floor(Math.random() * 4) + 1;
-      charInclude(charType, 1);
+      switch (charType) {
+        //lowercase
+        case 1:
+          let lowerCharNum = Math.floor(Math.random() * 26) + 1;
+          includeLowercaseChar(lowerCharNum);
+          break;
+        //uppercase
+        case 2:
+          let upperCharNum = Math.floor(Math.random() * 26) + 1;
+          includeUppercaseChar(upperCharNum);
+          break;
+        //numbers
+        case 3:
+          let number = Math.floor(Math.random() * 10);
+          password += number;
+          break;
+        //special characters
+        case 4:
+          let specialCharNum = Math.floor(Math.random() * 5) + 1;
+          includeSpecialChar(specialCharNum);
+          break;
+      }
     }
     // Combo 2
     else if (uppercase && numbers) {
       let charType = Math.floor(Math.random() * 3) + 1;
-      charInclude(charType, 2);
+      switch (charType) {
+        //lowercase
+        case 1:
+          let lowerCharNum = Math.floor(Math.random() * 26) + 1;
+          includeLowercaseChar(lowerCharNum);
+          break;
+        //uppercase
+        case 2:
+          let upperCharNum = Math.floor(Math.random() * 26) + 1;
+          includeUppercaseChar(upperCharNum);
+          break;
+        //numbers
+        case 3:
+          let number = Math.floor(Math.random() * 10);
+          password += number;
+          break;
+      }
     }
     // Combo 3
     else if (uppercase && specialChars) {
       let charType = Math.floor(Math.random() * 3) + 1;
-      charInclude(charType, 3);
+      switch (charType) {
+        //lowercase
+        case 1:
+          let lowerCharNum = Math.floor(Math.random() * 26) + 1;
+          includeLowercaseChar(lowerCharNum);
+          break;
+        //uppercase
+        case 2:
+          let upperCharNum = Math.floor(Math.random() * 26) + 1;
+          includeUppercaseChar(upperCharNum);
+          break;
+        //special characters
+        case 3:
+          let specialCharNum = Math.floor(Math.random() * 5) + 1;
+          includeSpecialChar(specialCharNum);
+          break;
+      }
     }
     // Combo 4
     else if (numbers && specialChars) {
       let charType = Math.floor(Math.random() * 3) + 1;
-      charInclude(charType, 4);
+      switch (charType) {
+        //lowercase
+        case 1:
+          let lowerCharNum = Math.floor(Math.random() * 26) + 1;
+          includeLowercaseChar(lowerCharNum);
+          break;
+        //numbers
+        case 2:
+          let number = Math.floor(Math.random() * 10);
+          password += number;
+          break;
+        //special characters
+        case 3:
+          let specialCharNum = Math.floor(Math.random() * 5) + 1;
+          includeSpecialChar(specialCharNum);
+          break;
+      }
     }
     // Combo 5
     else if (uppercase) {
       let charType = Math.floor(Math.random() * 2) + 1;
-      charInclude(charType, 5);
+      switch (charType) {
+        //lowercase
+        case 1:
+          let lowerCharNum = Math.floor(Math.random() * 26) + 1;
+          includeLowercaseChar(lowerCharNum);
+          break;
+        //uppercase
+        case 2:
+          let upperCharNum = Math.floor(Math.random() * 26) + 1;
+          includeUppercaseChar(upperCharNum);
+          break;
+      }
     }
     // Combo 6
     else if (numbers) {
       let charType = Math.floor(Math.random() * 2) + 1;
-      charInclude(charType, 6);
+      switch (charType) {
+        //lowercase
+        case 1:
+          let lowerCharNum = Math.floor(Math.random() * 26) + 1;
+          includeLowercaseChar(lowerCharNum);
+          break;
+        //numbers
+        case 2:
+          let number = Math.floor(Math.random() * 10);
+          password += number;
+          break;
+      }
     }
     // Combo 7
     else if (specialChars) {
       let charType = Math.floor(Math.random() * 2) + 1;
-      charInclude(charType, 7);
+      switch (charType) {
+        //lowercase
+        case 1:
+          let lowerCharNum = Math.floor(Math.random() * 26) + 1;
+          includeLowercaseChar(lowerCharNum);
+          break;
+        //special characters
+        case 2:
+          let specialCharNum = Math.floor(Math.random() * 5) + 1;
+          includeSpecialChar(specialCharNum);
+          break;
+      }
     }
     // Combo 8
     else {
@@ -75,126 +177,6 @@ function generatePassword(e) {
   upperCharNum = 0;
   number = 0;
   specialCharNum = 0;
-}
-
-function charInclude(charType, combo) {
-  if (combo === 1) {
-    switch (charType) {
-      //lowercase
-      case 1:
-        let lowerCharNum = Math.floor(Math.random() * 26) + 1;
-        includeLowercaseChar(lowerCharNum);
-        break;
-      //uppercase
-      case 2:
-        let upperCharNum = Math.floor(Math.random() * 26) + 1;
-        includeUppercaseChar(upperCharNum);
-        break;
-      //numbers
-      case 3:
-        let number = Math.floor(Math.random() * 10);
-        password += number;
-        break;
-      //special characters
-      case 4:
-        let specialCharNum = Math.floor(Math.random() * 5) + 1;
-        includeSpecialChar(specialCharNum);
-        break;
-    }
-  } else if (combo === 2) {
-    switch (charType) {
-      //lowercase
-      case 1:
-        let lowerCharNum = Math.floor(Math.random() * 26) + 1;
-        includeLowercaseChar(lowerCharNum);
-        break;
-      //uppercase
-      case 2:
-        let upperCharNum = Math.floor(Math.random() * 26) + 1;
-        includeUppercaseChar(upperCharNum);
-        break;
-      //numbers
-      case 3:
-        let number = Math.floor(Math.random() * 10);
-        password += number;
-        break;
-    }
-  } else if (combo === 3) {
-    switch (charType) {
-      //lowercase
-      case 1:
-        let lowerCharNum = Math.floor(Math.random() * 26) + 1;
-        includeLowercaseChar(lowerCharNum);
-        break;
-      //uppercase
-      case 2:
-        let upperCharNum = Math.floor(Math.random() * 26) + 1;
-        includeUppercaseChar(upperCharNum);
-        break;
-      //special characters
-      case 3:
-        let specialCharNum = Math.floor(Math.random() * 5) + 1;
-        includeSpecialChar(specialCharNum);
-        break;
-    }
-  } else if (combo === 4) {
-    switch (charType) {
-      //lowercase
-      case 1:
-        let lowerCharNum = Math.floor(Math.random() * 26) + 1;
-        includeLowercaseChar(lowerCharNum);
-        break;
-      //numbers
-      case 2:
-        let number = Math.floor(Math.random() * 10);
-        password += number;
-        break;
-      //special characters
-      case 3:
-        let specialCharNum = Math.floor(Math.random() * 5) + 1;
-        includeSpecialChar(specialCharNum);
-        break;
-    }
-  } else if (combo === 5) {
-    switch (charType) {
-      //lowercase
-      case 1:
-        let lowerCharNum = Math.floor(Math.random() * 26) + 1;
-        includeLowercaseChar(lowerCharNum);
-        break;
-      //uppercase
-      case 2:
-        let upperCharNum = Math.floor(Math.random() * 26) + 1;
-        includeUppercaseChar(upperCharNum);
-        break;
-    }
-  } else if (combo === 6) {
-    switch (charType) {
-      //lowercase
-      case 1:
-        let lowerCharNum = Math.floor(Math.random() * 26) + 1;
-        includeLowercaseChar(lowerCharNum);
-        break;
-      //numbers
-      case 2:
-        let number = Math.floor(Math.random() * 10);
-        password += number;
-        break;
-    }
-  } else if (combo === 7) {
-    switch (charType) {
-      //lowercase
-      case 1:
-        let lowerCharNum = Math.floor(Math.random() * 26) + 1;
-        includeLowercaseChar(lowerCharNum);
-        break;
-      //special characters
-      case 2:
-        let specialCharNum = Math.floor(Math.random() * 5) + 1;
-        includeSpecialChar(specialCharNum);
-        break;
-    }
-  }
 }
 
 function includeLowercaseChar(charNum) {

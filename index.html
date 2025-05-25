@@ -9,6 +9,7 @@
       content="A website where you can generate strong passwords for your accounts"
     />
     <title>Password Generator</title>
+    <link rel="shortcut icon" href="favicon.png" type="image/png">
     <style>
       @font-face {
         font-family: 'headFont';
@@ -105,8 +106,15 @@
         border-radius: 5px;
         font-family: headFont, sans-serif;
       }
+      @media (pointer: fine) and (min-width: 1024px) {
       button:hover {
         transform: scale(1.1);
+      }
+      #generateButton:hover{
+        background-color: var(--accent-hover);
+        font-weight: bold;
+        transform: scale(1.2);
+      }
       }
       fieldset{
         border: 3px solid var(--border-color);
@@ -124,11 +132,6 @@
       #generateButton{
         background-color: var(--accent-color);
         border: none;
-      }
-      #generateButton:hover{
-        background-color: var(--accent-hover);
-        font-weight: bold;
-        transform: scale(1.2);
       }
       #passwordDiv{
         margin-top: 15px;
@@ -204,7 +207,7 @@
         ></a>
         <br />
         &copy;Copyright, Sai Sriyan Nakka 2025, All Rights Reserved.
-        <br />Version 0.9 <br />
+        <br />Version 1.0 <br />
       </center>
     </footer>
   </body>
